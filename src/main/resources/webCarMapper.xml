@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Project.car.webCarMapper">
+	<select id="selectHuman"
+		resultType="org.Project.car.model.HumanDto">
+		select * from human where no = #{no}
+	</select>
+
+	<select id="selectAll"
+		resultType="org.Project.car.model.HumanDto">
+		select * from human
+	</select>
+	<insert id="insertHuman"
+		parameterType="org.Project.car.model.HumanDto">
+		insert into human (id, name, age) values (
+		#{id},
+		#{name}, #{age}
+		)
+	</insert>
+
+	<update id="updateHuman"
+		parameterType="org.Project.car.model.HumanDto">
+		update Human set
+		id = #{id},
+		name = #{name},
+		age = #{age}
+		where no = #{no}
+	</update>
+
+	<delete id="deleteHuman"
+		parameterType="org.Project.car.model.HumanDto">
+		delete from Human where id = #{id}
+	</delete>
+
+</mapper>
